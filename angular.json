@@ -27,7 +27,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+
+              "src/styles.css",
+              
+              "src/sweetalert2-theme.scss"
+      
             ],
             "scripts": []
           },
@@ -42,7 +46,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "5kb"
                 }
               ],
               "fileReplacements": [

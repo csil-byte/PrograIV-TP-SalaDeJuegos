@@ -1,0 +1,339 @@
+
+
+@import '~ngx-toastr/toastr.css'; 
+#toast-container > div {
+  opacity:1;
+}
+.background-console
+{
+  background: url(./../../assets/img-home/back-hearts.jpg)  repeat center center fixed;
+ background-size: 100%;
+height: 700px;
+ margin-top: -50px;
+
+
+
+}
+
+.login-success{
+  background: url(./../../assets/img-home/back-hearts.jpg)  repeat center center fixed;
+}
+
+/*form BUTTON*/
+.start-btn{
+  text-align: center;
+display: inline-block;
+
+margin:8px;
+  font-weight: bold;
+  padding: 2px 10px 2px 10px ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+-moz-border-radius: 7px;
+-o-border-radius: 7px;
+border-radius: 7px;
+  box-shadow: 0 .2em gray; 
+  cursor: pointer;
+
+}
+/*login form*/
+
+.form-group
+{
+  margin-top: 10%;
+
+    
+}
+
+.form-container
+{
+  padding-top: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+ 
+}
+
+/* 
+title */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: repeating-linear-gradient(to bottom, #0f0a1e, #0f0a1e 2px, #140e29 2px, #140e29 4px);
+}
+.title-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0%;
+  right: 0;
+  height: 90px;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  margin-top: 0%;
+  font-size: 35px;
+  letter-spacing: 5px;
+  text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe, 4px 0 0 #4405fc;
+  animation: blink 1s steps(4, start) infinite;
+}
+@-moz-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-o-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+
+
+
+
+
+
+/* BODY - gameboy*/
+.container {
+    position: relative;
+    margin-top: 10%;
+    left: 15%;
+    transform: translate(-50%, 50px);
+    background-color: #2c2c2c22;
+    width: 450px;
+    height: 600px;
+    border: 3px solid #787A79;
+    border-radius: 10px;
+    border-bottom-right-radius: 50px;
+  }
+  .top {
+    width: 100%;
+    height: 50px;
+    background-color: #2c2c2c07;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 3px solid #787A79;
+  }
+  .top:after {
+    content: ' ';
+    display: block;
+    position: relative;
+    top: 7px;
+    left: 0px;
+    width: 40px;
+    border: 5px solid #787A79;
+    border-radius: 5px;
+  }
+  .screen {
+    width: 370px;
+    height: 300px;
+    position: relative;
+    top: 12px;
+    left: 30px;
+    background: #BDBDBD;
+    border: 3px solid #787A79;
+    border-radius: 5px;
+  }
+  .screen .inner {
+    width: 300px;
+    height: 260px;
+    position: relative;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background: #c7a2ff;
+    border: 3px solid #787A79;
+    border-radius: 5px;
+  }
+  .screen .power {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: calc(50% + 120px);
+    left: 4px;
+    background: #F3886B;
+    border: 3px solid #787A79;
+    border-radius: 100%;
+  }
+  .screen .power:after {
+    content: ' ';
+    display: block;
+    width: 20px;
+    border-bottom: 2px solid #787A79;
+    position: relative;
+    top: 13px;
+    left: -6px;
+  }
+  .controls {
+    position: relative;
+  }
+  .controls .dpad {
+    width: 110px;
+    height: 110px;
+    background: #E0E2E1;
+    border: 2px solid #787A79;
+    border-radius: 100%;
+    position: relative;
+    left: 10px;
+    top: 30px;
+  }
+  .controls .dpad,
+  .controls .dpad *,
+  .controls .dpad *:before,
+  .controls .dpad *:after {
+    box-sizing: border-box;
+  }
+  .controls .dpad .plus:before,
+  .controls .dpad .plus:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #BDBDBD;
+    border-radius: 3px;
+    box-shadow: 0 0 0 3px #787A79;
+    content: '';
+    display: block;
+    height: 20px;
+    width: 60px;
+  }
+  .controls .dpad .plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .controls .dpad .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #BDBDBD;
+    width: 30px;
+    height: 15px;
+  }
+  .controls .dpad .middle:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f5f5f5;
+    border-radius: 50%;
+    border: 2px solid #787A79;
+    content: '';
+    height: 12px;
+    width: 12px;
+  }
+  .controls .buttons {
+    position: absolute;
+    right: 10px;
+    top: 55px;
+    width: 120px;
+    height: 50px;
+    background-color: #E0E2E1;
+    border: 2px solid #787A79;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    transform: rotate(-35deg);
+  }
+  .controls .buttons:before,
+  .controls .buttons:after {
+    content: '';
+    display: block;
+    background-color: #F3886B;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #787A79;
+    border-radius: 100%;
+    margin: 3px;
+  }
+  .controls .startselect {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 40px);
+    display: flex;
+  }
+  .controls .startselect:before,
+  .controls .startselect:after {
+    content: '';
+    display: block;
+    background-color: #E0E2E1;
+    border: 2px solid #787A79;
+    border-radius: 8px;
+    margin: 0 4px;
+    width: 45px;
+    height: 15px;
+    transform: rotate(-35deg);
+  }
+  .corner {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #f5f5f5;
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 48px;
+    width: 80px;
+    height: 50px;
+  }
+  .speaker {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    transform: rotate(-35deg);
+    display: flex;
+  }
+  .speaker .set {
+    display: flex;
+  }
+  .speaker .set:before,
+  .speaker .set:after {
+    content: '';
+    display: block;
+    background-color: #f5f5f5;
+    border: 2px solid #BDBDBD;
+    margin: 3px;
+    width: 1px;
+    height: 35px;
+  }
+  .mic {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 20px;
+    border: 3px solid #787A79;
+    border-radius: 3px;
+  }
+  .mic:before,
+  .mic:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: #787A79;
+    width: 2px;
+    height: 11px;
+  }
+  .mic:before {
+    right: 2px;
+  }
+  .mic:after {
+    left: 2px;
+  }
+  

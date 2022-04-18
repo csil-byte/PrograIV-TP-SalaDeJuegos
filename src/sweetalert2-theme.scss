@@ -1,0 +1,9 @@
+// This is an example of variables we can change:
+$swal2-font: monospace;
+$swal2-icon-size: 10em;
+
+@import '~sweetalert2/src/sweetalert2';
+
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  }
