@@ -16,7 +16,13 @@
       </style><span> BIENVENIDO </span></div>
     <div class="text" routerLink="/home"  >HOME</div>
     </div>
-  <div class="right">
+  <div class="right" 
+  *ngIf="authSvc.userData as user"
+  
+  >
+    <div class="text" (click)="authSvc.SignOut()" routerLink="/login">CERRAR SESION</div>
+  </div>
+  <div class="right"  *ngIf="!authSvc.userData as user">
     <div class="text" routerLink="/login">INICIAR SESION</div>
   </div>
   <div class="righter">

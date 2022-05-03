@@ -1,3 +1,15 @@
+
+<section class="profile">
+  <header class="header">
+    <div class="details" *ngIf="authSvc.userData as user">
+
+      <div class="location">
+        <p>Bienvenido, {{user.email}}!</p>
+      </div>
+     
+    </div>
+  </header>
+</section>
 <ul class="cards">
     <li>
       <a href="" class="card">

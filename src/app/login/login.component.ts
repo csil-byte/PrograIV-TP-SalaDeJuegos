@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { url } from 'inspector';
+
 
 
 @Component({
@@ -23,7 +24,16 @@ export class LoginComponent implements OnInit {
   constructor(
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     private router: Router
-        ) {}
+        ) {
+
+          this.credentials = new FormGroup({
+            email: new FormControl('', [Validators.required, Validators.email]),
+            password: new FormControl('', [Validators.required, Validators.minLength(6)])
+            
+   
+          });
+             
+        }
   ngOnInit(): void { 
   }
   // Sign up with email/password
@@ -55,6 +65,7 @@ export class LoginComponent implements OnInit {
 
 }
 
+
   
 function alertWithSuccess(){     
 Swal.fire({
@@ -65,7 +76,7 @@ Swal.fire({
   background: '#fff url(./../../assets/img-home/back-hearts.jpg)',
  
 }).then(function() {
-  window.location.href = './../../quien-soy';
+  window.location.href = './../../home';
   //   this.router.navigateByUrl('/quien-soy', { replaceUrl: true });
 })
 }

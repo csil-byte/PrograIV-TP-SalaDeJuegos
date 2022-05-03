@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { AuthService } from './shared/services/auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +10,21 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 })
 export class AppComponent {
   title = 'TP-SalaDeJuegos';
+
+  public user$: Observable<any> = this.authSvc.afAuth.user;
+  constructor(public authSvc:AuthService) { }
+// isLoggedIn()
+// {
+//   if(localStorage.getItem('token')!=null)
+//   {
+//     return true;
+//   }
+//   else
+//   {
+//     return false;
+//   }
+  
+// }
 
   simpleAlert(){
     Swal.fire({

@@ -1,13 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.header {
+
+  background: #009FFF;
+background: linear-gradient(to right, #fda7bb, #a173f6);
+  color: white;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.profile
+{
+  margin-top: 100px;
+}
+.details {
+  text-align: center;
+}
+
+.location p {
+  display: inline-block;
+  margin-top: 90px;
+}
+
+
+
+.card__image {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  border: 5px solid #272133;
+  margin-top: 20px;
+  box-shadow: 0 20px 50px rgb(255, 0, 68);
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}
 
 
 :root {
     --surface-color: #fff;
     --curve: 40;
+ 
     
   }
   
   * {
-      
+
     box-sizing: border-box;
   }
   
@@ -15,19 +63,20 @@
 
     font-family: "Noto Sans JP", sans-serif;
     background-color: #fef8f8;
-    
+    width: 100%;
   }
   
   .cards {
       
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 4rem 5vw;
-    padding: 0;
     list-style-type: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     background:  url(./../../assets/img-home/back-hearts.jpg)  repeat center center fixed;
-    background-size: 100%;
+   
   }
   
   .card {
@@ -42,7 +91,7 @@
   }
   
   .card__image {
-    width: 100%;
+    width: 60%;
     height: auto;
   }
   

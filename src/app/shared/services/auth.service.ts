@@ -11,12 +11,6 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  register(value: any) {
-    throw new Error('Method not implemented.');
-  }
-  login(value: any) {
-    throw new Error('Method not implemented.');
-  }
   userData: any; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service

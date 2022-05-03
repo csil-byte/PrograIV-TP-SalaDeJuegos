@@ -13,6 +13,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AuthService } from './shared/services/auth.service';
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
+import { RegistrarComponent } from './registrar/registrar.component';
+
+
 
 
 const firebaseConfig = {
@@ -30,11 +33,13 @@ const firebaseConfig = {
     LoginComponent,
     HomeComponent,
     QuienSoyComponent,
+    RegistrarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, ReactiveFormsModule ,
+ 
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,

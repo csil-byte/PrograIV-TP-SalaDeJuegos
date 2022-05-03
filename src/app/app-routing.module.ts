@@ -6,27 +6,30 @@ import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import {RegistrarComponent } from './registrar/registrar.component';
 
 const routes: Routes = [
- {  path: 'quien-soy',
-  component: QuienSoyComponent,
-
-}, {  path: '*',
-redirectTo: '',
-pathMatch: 'full',
-},
 {  path: 'login', 
   component: LoginComponent, 
+ 
+},
+{  path: 'registrar', 
+  component: RegistrarComponent, 
  
 },
 {
   path: 'home',
   component: HomeComponent,
  
-},
+}, {  path: 'quien-soy',
+  component: QuienSoyComponent,
 
+}, 
 
+{  path: '',
+redirectTo: 'login',
+pathMatch: 'full',
+}
 
 ];
 
