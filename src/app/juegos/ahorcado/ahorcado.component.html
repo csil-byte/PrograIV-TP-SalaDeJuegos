@@ -1,0 +1,71 @@
+<div class="fondo">
+
+<div *ngIf="!juegoEnCurso"  class="container">
+  <h1 class="h1">
+    Ahorcado<br /><span class="colorDisplay">Reglas del juego</span>
+  </h1>
+  <div class="row">
+    <div class="col"></div>
+
+    <div class="col">
+      <p style="margin-top: 50px">
+        El jugador deberá adivinar palabras eligiendo las letras que las
+        componen, cada acierto irá completando la palabra mientras que cada
+        error dibujará al ahorcado. Si el ahorcado termina de dibujarse, el
+        jugador perderá. Cada palabra que el jugador complete, sumará un punto.
+        El total de puntos a obtener serán 10.
+      </p>
+      <h1 class="display-3">Buena suerte!!</h1>
+    </div>
+  </div>
+  <hr />
+  <button (click)="iniciarJuego()">Empezar</button>
+</div>
+  <div *ngIf="juegoEnCurso" class="container">
+    <h1 class="h1">
+      Ahorcado<br /><span class="colorDisplay">Adivina las palabras</span>
+    </h1>
+
+    <div class="">
+      <span class="message">Puntaje: {{ 5 }}</span>
+    </div>
+    <!-- <div class="col">
+      <li *ngFor="let boton of botones">
+        <button class="btn btn-primary letter-button">{{ boton.letra }}</button>
+      </li>
+    </div> -->
+
+    <div class="col palabraContainer">
+      <ng-container>
+        <button class="respuesta"
+          *ngFor="let buttonText of palabraActualArray; let i = index"
+        
+        >
+          {{ buttonText }}
+        </button>
+      </ng-container>
+      <!-- *ngFor="let descr of elegirPalabra()">
+        <p>
+          {{ descr }}
+        </p> -->
+
+      <!-- <span *ngFor="let letra of palabraElegida">
+        <span>{{ palabraElegida }} </span>
+      </span> -->
+    </div>
+
+    <div class="row">
+      <div class="col botonera">
+        <button
+          type="button"
+          class="btn btn-primary"
+          *ngFor="let boton of botones"
+          (click)="verificarLetra(boton)"
+          [disabled]="boton.presionado"
+          [ngClass]="boton.estado"
+        >
+          {{ boton.letra }}
+        </button>
+      </div>
+    </div>
+  </div></div>

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "tp-saladejuegos-d4757"
+  },
+  "targets": {
+    "tp-saladejuegos-d4757": {
+      "hosting": {
+        "TP-SalaDeJuegos": [
+          "tp-saladejuegos-d4757"
+        ]
+      }
+    }
   }
 }

@@ -1,9 +1,14 @@
 
+.body {
+  margin: 0px;
+  margin-bottom: -10px;
+}
+
 .header-back
 {
   background: url(./../assets/img-home/powerpuff.jpg) repeat center center fixed;
   background-blend-mode: darken;
-  height: 110px;
+  height: 15%;
   width: 100%;
   position: fixed;
   top: 0;
@@ -19,8 +24,9 @@
     will-change: perspective;
     perspective-origin: center center;
     transition: all 1.3s ease-out;
-    justify-content: center;
+    justify-content: center !important;
     transform-style: preserve-3d;
+    
   }
   .all {
     margin-top: 10px;

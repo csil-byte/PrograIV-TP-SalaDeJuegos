@@ -7,6 +7,8 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -130,4 +132,9 @@ export class AuthService {
       this.router.navigate(['sign-in']);
     });
   }
+
+  getCurentUser(){
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
 }

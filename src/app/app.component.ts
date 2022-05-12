@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { AuthService } from './shared/services/auth.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,12 @@ import { AuthService } from './shared/services/auth.service';
 })
 export class AppComponent {
   title = 'TP-SalaDeJuegos';
-
+  items: Observable<any[]>;
   public user$: Observable<any> = this.authSvc.afAuth.user;
-  constructor(public authSvc:AuthService) { }
+  constructor(public authSvc:AuthService, firestore: AngularFirestore) {
+    //this.items = firestore.collection('items').valueChanges();
+    this.items = firestore.collection('chat_msj').valueChanges();
+   }
 // isLoggedIn()
 // {
 //   if(localStorage.getItem('token')!=null)
