@@ -1,41 +1,40 @@
-
-
-
-   <div class="scroll" #scrollMe>
-    <div class="container" style="margin-top: 30px;">
-      <div class="line" *ngFor="let mensaje of chat">
-          <div *ngIf="mensaje.data.usuario == user.email">
-            <div class="file-input">
-              <div class="" style="text-align: right; font-size: 20px; width: 700px;">
-                <span class="chat-input msg_container_from">{{ mensaje.data.usuario }}</span>
-               
-                <br>
-                <span class="chat-input">    {{ mensaje.data.mensaje }} </span>
-                <br>
-                <span style="font-size: 15px;"> {{mensaje.data.fecha}} {{ mensaje.data.hora }}</span>
-              </div>
-            </div>
+<div class="chat-box">
+  <div class="chat-container">
+    <div class="inbox">
+      <div class="message-container" *ngFor="let mensaje of chat">
+        <div
+          *ngIf="mensaje.data.usuario == user.email"
+          class="message message-out"
+        >
+          <div class="message-user">{{ mensaje.data.usuario }}</div>
+          <div class="message-text">{{ mensaje.data.mensaje }}</div>
+          <div class="message-time">
+            {{ mensaje.data.fecha }} {{ mensaje.data.hora }}
           </div>
-          <div *ngIf="mensaje.data.usuario != user.email">
-            <div class="chat d-flex justify-content-start mb-4">
-              <div class="" style="text-align: left; font-size: 20px;">
-                <span class="msg_container_otro">{{ mensaje.data.usuario }}</span
-                ><br />
-                {{ mensaje.data.mensaje }}
-                <br>
-                <span style="font-size: 15px;">{{mensaje.data.fecha}} {{ mensaje.data.hora }}</span>
-              </div>
-            </div>
-          </div> 
-
-          <hr>
-
+        </div>
+        <div
+          *ngIf="mensaje.data.usuario != user.email"
+          class="message message-in"
+        >
+          <div class="message-user">{{ mensaje.data.usuario }}</div>
+          <div class="message-text">{{ mensaje.data.mensaje }}</div>
+          <div class="message-time">
+            {{ mensaje.data.fecha }} {{ mensaje.data.hora }}
+          </div>
+        </div>
       </div>
     </div>
+    <div class="send-message">
+      <input
+        (keydown.enter)="send()"
+        type="text"
+        [(ngModel)]="mensaje.mensaje"
+        placeholder="Escribir mensaje..."
+        class="send-message-input"
+      />
+      <button class="send-message-btn" [disabled]="!mensaje" (click)="send()">
+        Enviar
+      </button>
+    </div>
   </div>
-  
-  <div class="chat-input text-area input-group mb-3">
-    <input (keydown.enter)='send()' type="text" [(ngModel)]="mensaje.mensaje" class="form-control" placeholder="Escribir mensaje...">
-    <button [disabled]="!mensaje" class="btn btn-primary" (click)="send()">Enviar</button>
-  </div>
-  
+</div>
