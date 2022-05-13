@@ -8,35 +8,31 @@
         <div class="col"></div>
         <div class="col">
           <p style="margin-top: 30px">
-            El jugador deberá adivinar palabras eligiendo las letras que las
-            componen, cada acierto irá completando la palabra mientras que cada
-            error dibujará al ahorcado. Si el ahorcado termina de dibujarse, el
-            jugador perderá. Cada palabra que el jugador complete, sumará un
-            punto. El total de puntos a obtener serán 10.
-          </p>
+            Usando una fila de guiones, se representa la palabra a adivinar, dando el número de letras, números y categoría.
+            Se va adivinando una letra por turno, si la letra no está en la palabra, se resta una vida.
+            Si la letra está en la palabra, se muestra la letra en la palabra.
+                       </p>
         </div>
       </div>
       <hr />
       <button (click)="iniciarJuego()">Empezar</button>
     </div>
 
-    
-      <div *ngIf="juegoEnCurso" class="ahorcado-container">
-      
-        <div class="row">
-          <div class="ahorcado-imagen">
-       
-              <img src="./../../../assets/ahorcado/{{vidas}}.png" width="340px" height="340px">
-          
-          </div>
-        
+    <div *ngIf="juegoEnCurso" class="ahorcado-container">
+      <div class="row">
+        <div class="ahorcado-imagen">
+          <img
+            src="./../../../assets/ahorcado/{{ vidas }}.png"
+            width="340px"
+            height="340px"
+          />
         </div>
-        <hr />
-       
       </div>
-      <div *ngIf="juegoEnCurso" class="game-container">
+      <hr />
+    </div>
+    <div *ngIf="juegoEnCurso" class="game-container">
       <h1 class="h1">
-        Ahorcado<br /><span class="colorDisplay">Adivina las palabras</span>
+        Ahorcado<br /><span class="colorDisplay">Adivina la palabra!</span>
       </h1>
 
       <div class="">
@@ -53,9 +49,9 @@
           <ng-container>
             <button
               class="respuesta"
-              *ngFor="let buttonText of palabraActualArray; let i = index"
-            >
-              {{ buttonText }}
+              *ngFor="let buttonText of botonesRespuesta; let i = index"
+              [ngClass]="buttonText.estado"> 
+              {{ buttonText.letra }}
             </button>
           </ng-container>
           <!-- *ngFor="let descr of elegirPalabra()">
@@ -77,7 +73,7 @@
           (click)="verificarLetra(boton)"
           [disabled]="boton.presionado"
           [ngClass]="boton.estado"
-        >
+          >       
           {{ boton.letra }}
         </button>
       </div>
