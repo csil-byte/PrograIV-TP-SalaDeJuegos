@@ -28,6 +28,8 @@ export class AhorcadoComponent implements OnInit {
   palabraElegidaE: any = [];
   juegoEnCurso: boolean = false;
   len: number = 0;
+  gameOver: boolean = false;
+  win: boolean = false;
 
   ngOnInit(): void {
     console.log('valor de juegoEnCurso: ' + this.juegoEnCurso);
@@ -126,11 +128,13 @@ export class AhorcadoComponent implements OnInit {
         console.log('guess is wrong');
       } else {
         //game over
+        this.gameOver = true;
         console.log('game over');
         //set timeout for 5 seconds
-        setTimeout(() => {
-          this.juegoEnCurso = false;
-        }, 5000);
+
+        // setTimeout(() => {
+        //   this.juegoEnCurso = false;
+        // }, 5000);
       }
     }
   }

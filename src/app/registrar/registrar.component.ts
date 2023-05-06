@@ -1,38 +1,70 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
-  styleUrls: ['./registrar.component.css']
+  styleUrls: ['./registrar.component.css'],
 })
 export class RegistrarComponent implements OnInit {
   credentials!: FormGroup;
-  
-  constructor( public afAuth: AngularFireAuth,     private router: Router) {
 
-
-  this.credentials = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)])
-  
-});
-   }
-
-  ngOnInit(): void {
+  constructor(public afAuth: AngularFireAuth, private router: Router) {
+    this.credentials = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+    });
   }
-  async register(email: string, password: string) {
+
+  ngOnInit(): void {}
+  async register(email: string, password: string, name: any) {
     try {
-      const result = await this.afAuth
-        .createUserWithEmailAndPassword(email, password);
-      window.alert('You have been successfully registered!');
-      console.log(result.user);
+      const result = await this.afAuth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      result.user?.updateProfile({
+        displayName: name,
+      });
+
+      console.log(result);
+      alertWithSuccess('Se ha registrado con éxito');
     } catch (error) {
-     // window.alert(error.message);
+      alertWithError(error);
     }
   }
+}
 
-  
-
+function alertWithSuccess(title: any) {
+  Swal.fire({
+    title: title,
+    width: 600,
+    padding: '3em',
+    color: '#716add',
+    background: '#fff url(./../../assets/img-home/back-hearts.jpg)',
+  }).then(function () {
+    window.location.href = './../../home';
+  });
+}
+function alertWithError(title: any) {
+  Swal.fire({
+    title: title,
+    width: 600,
+    padding: '3em',
+    color: '#dd6a6a',
+    background: '#fff url(./../../assets/img-home/back-hearts.jpg)',
+  }).then(function () {
+    window.location.href = './../../register';
+    //   this.router.navigateByUrl('/quien-soy', { replaceUrl: true });
+  });
 }

@@ -1,72 +1,92 @@
-
-<section class="profile">
-  <header class="header">
-    <div class="details" *ngIf="authSvc.userData as user">
-
-      <div class="location" >
-        <p>Bienvenido, {{user.email}}!</p>
-        
-      </div>
-     
+<!-- <div class="container row">
+  <div class="container-cards col-lg-3 col-md-3">
+    <div class="header">
+      <img src="../../assets/img-home/hangman.png" class="game_image" alt="" />
     </div>
-  </header>
-</section>
-<ul class="cards">
-    <li>
-      <a href="" class="card" routerLink="/ahorcado">
-        <img src="../../assets/img-home/icons8-games-64.png" class="card__image" alt="" />
-        <div class="card__overlay">
-          <div class="card__header">
-            <div class="card__header-text">
-              <h3 class="card__title" >AHORCADO</h3>            
-              <span class="card__status" >_____________________________</span>
-            </div>
-          </div>
-          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-        </div>
-      </a>      
-    </li>
-    <li>
-      <a href="" class="card">
-        <img src="../../assets/img-home/icons8-games-64.png" class="card__image" alt="" />
-        <div class="card__overlay">        
-          <div class="card__header">       
-            <div class="card__header-text">
-              <h3 class="card__title">MAYOR O MENOR</h3>
-              <span class="card__status">____________</span>
-            </div>
-          </div>
-          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="" class="card">
-        <img src="../../assets/img-home/icons8-games-64.png" class="card__image" alt="" />
-        <div class="card__overlay">
-          <div class="card__header">                                 
-            <div class="card__header-text">
-              <h3 class="card__title">PREGUNTADOS</h3>                      
-              <span class="card__status">____________</span>
-            </div>
-          </div>
-          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="" class="card">
-        <img src="../../assets/img-home/icons8-games-64.png" class="card__image" alt="" />
-        <div class="card__overlay">
-          <div class="card__header">         
-            <div class="card__header-text">
-              <h3 class="card__title">JACKPOT</h3>
-              <span class="card__status">____________</span>
-            </div>          
-          </div>
-          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-        </div>
-      </a>
-    </li>    
-  </ul>
-  <router-outlet></router-outlet>
+    <div class="content" routerLink="/ahorcado">
+      <h1>__Ahorcado</h1>
+      <h3>Temática: pelis! Adivina la peli para ganar el juego.</h3>
+    </div>
+  </div>
+  <div class="container-cards col-lg-3 col-md-3">
+    <div class="header">
+      <img src="../../assets/img-home/mayormenor.png" class="game_image" alt="" />
+    </div>
+    <div class="content" routerLink="/mayormenor">
+      <h1>___Mayor Menor</h1>
+      <h3>
+        Adivina si la próxima carta es mayor o menor que la actual y suma
+        puntos!
+      </h3>
+    </div>
+  </div>
+  <div class="container-cards col-lg-3 col-md-3">
+    <div class="header">
+      <img src="../../assets/img-home/preguntados.png" class="game_image" alt="" />
+    </div>
+    <div class="content" routerLink="/preguntados">
+      <h1>_Preguntados</h1>
+      <h3>
+        Contesta bien las preguntas de conocimiento popular para ganar puntos y
+        ganar
+      </h3>
+    </div>
+  </div>
+  <div class="container-cards col-lg-3 col-md-3">
+    <div class="header">
+      <img src="../../assets/img-home/mayormenor.png" class="game_image" alt="" />
+    </div>
+    <div class="content" routerLink="/reaccion">
+      <h1>_Reacción</h1>
+      <h3>Hace click en los círculos para ver que tan rápido reaccionas</h3>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet> -->
+<div class="container row">
+  <div class="container-cards col-lg-3 col-md-3">
+    <div class="header">
+      <img src="../../assets/img-home/hangman.png" class="game_image" alt="" />
+    </div>
+    <div class="content">
+      <h1>Ahorcado</h1>
+      <h3>Temática: pelis! Adivina la peli para ganar el juego.</h3>
+    </div>
+  </div>
+  <div class="container-cards col-lg-3 col-md-3">
+    <div class="header">
+      <img src="../../assets/img-home/mayormenor.png" class="game_image" alt="" />
+    </div>
+    <div class="content" >
+      <h1>Mayor Menor</h1>
+      <h3>
+        Adivina si la próxima carta es mayor o menor que la actual y suma
+        puntos!
+      </h3>
+    </div>
+  </div>
+  <div class="container-cards col-lg-3 col-md-3">
+    <div class="header">
+      <img src="../../assets/img-home/preguntados.png" class="game_image" alt="" />
+    </div>
+    <div class="content"
+   
+     >
+      <h1>Preguntados</h1>
+      <h3>
+        Contesta bien las preguntas de conocimiento popular para ganar puntos y
+        ganar
+      </h3>
+    </div>
+  </div>
+  <div class="container-cards col-lg-3 col-md-3">
+    <div class="header">
+      <img src="../../assets/img-home/reaccion.png" class="game_image" alt="" />
+    </div>
+    <div class="content" >
+      <h1>Reacción</h1>
+      <h3>Hace click en los círculos para ver que tan rápido reaccionas</h3>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

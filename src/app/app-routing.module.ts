@@ -11,6 +11,7 @@ import { ChatComponent } from './home/chat/chat.component';
 import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
 import { PreguntadosComponent } from './juegos/preguntados/preguntados.component';
 import { MayorMenorComponent } from './juegos/mayor-menor/mayor-menor.component';
+import { ReaccionComponent } from './juegos/reaccion/reaccion.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
 
   { path: 'mayormenor', component: MayorMenorComponent },
 
+  { path: 'reaccion', component: ReaccionComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 

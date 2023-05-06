@@ -1,37 +1,53 @@
-<link href="http://fonts.cdnfonts.com/css/cheri" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/krishart" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/jumborings" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/cheri" rel="stylesheet" />
+<link href="http://fonts.cdnfonts.com/css/krishart" rel="stylesheet" />
+<link href="http://fonts.cdnfonts.com/css/jumborings" rel="stylesheet" />
 
-
-  <nav class=""><div class="header-back">
-<div class="all">
-  <div class="lefter">
-    <div class="text" routerLink="/quien-soy">SOBRE MI</div>
-  </div>
-  <div class="left">
-    <div class="text">JUEGOS</div>
-  </div>
-  <div class="center">
-    <div class="explainer" ><style>
-@import url('http://fonts.cdnfonts.com/css/jumborings');
-      </style><span> BIENVENIDO </span></div>
-    <div class="text" routerLink="/home"  >HOME</div>
+<nav class="" *ngIf="authSvc.userData as user; else elseBlock">
+  <div class="header-back">
+    <div class="all">
+      <div class="lefter">
+        <div class="text" routerLink="/quien-soy">SOBRE MI</div>
+      </div>
+      <div class="center">
+        <div class="explainer">
+          <style>
+            @import url("http://fonts.cdnfonts.com/css/jumborings");
+          </style>
+          ><span> BIENVENIDO </span>
+        </div>
+        <div class="text" routerLink="/home">HOME</div>
+      </div>
+      <div class="right" *ngIf="authSvc.userData as user">
+        <div class="text" (click)="authSvc.SignOut()" routerLink="/login">
+          CERRAR SESION
+        </div>
+      </div>
+      <div class="right" *ngIf="!authSvc.userData as user">
+        <div class="text" routerLink="/login">INICIAR SESION</div>
+      </div>
+      <div class="righter">
+        <div class="text" routerLink="/chat">CHAT</div>
+      </div>
     </div>
-  <div class="right" 
-  *ngIf="authSvc.userData as user"
-  
-  >
-    <div class="text" (click)="authSvc.SignOut()" routerLink="/login">CERRAR SESION</div>
   </div>
-  <div class="right"  *ngIf="!authSvc.userData as user">
-    <div class="text" routerLink="/login">INICIAR SESION</div>
-  </div>
-  <div class="righter">
-    <div class="text" routerLink="/chat">CHAT</div>
-  </div>
-  </div>
-  </div>
- </nav>
+</nav>
+<ng-template #elseBlock>
+  <nav class="">
+    <div class="header-back">
+      <div class="all">
+        <div class="center">
+          <div class="explainer">
+            <style>
+              @import url("http://fonts.cdnfonts.com/css/jumborings");</style
+            ><span> BIENVENIDO </span>
+          </div>
+          <div class="text" routerLink="/login" style="left: 40px">
+            INICIAR SESION
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</ng-template>
 
- 
- <router-outlet></router-outlet>
+<router-outlet></router-outlet>

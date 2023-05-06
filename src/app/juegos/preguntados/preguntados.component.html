@@ -1,1 +1,105 @@
-<p>preguntados works!</p>
+<div *ngIf="terminado == false" class="game-container">
+  <div *ngIf="this.empezo == false">
+    <h1 class="h1">
+      Preguntados<br /><span class="colorDisplay">Reglas del juego</span>
+    </h1>
+    <div class="container">
+      <div class="row">
+        <div class="col image-div">
+          <img src="../../assets/img-home/preguntados.png" />
+        </div>
+
+        <div class="col">
+          <p style="margin-top: 50px">
+            Se le van a presentar al jugador una serie de preguntas con sus
+            respectivas opciones. Cada pregunta que se acierte, sumará un punto.
+            Cada pregunta que se conteste mal, sumará un error.
+          </p>
+          <h1 class="display-3">Buena suerte!!</h1>
+        </div>
+      </div>
+      <hr />
+      <div style="text-align: center">
+        <button
+          style="text-align: center; margin-top: 30px"
+          class="btn btn-secondary"
+          (click)="comenzarJuego()"
+        >
+          Comenzar Juego
+        </button>
+        <a
+          class="btn btn-secondary"
+          style="margin-left: 10px; margin-top: 30px"
+          [routerLink]="['/home']"
+          >Volver a home</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="this.empezo != false">
+    <h1 class="h1">
+      Preguntados<br /><span class="colorDisplay">Contestá las preguntas</span>
+    </h1>
+
+    <div class="stripe" style="margin-top: 20px">
+      <span class="message">Puntaje: {{ puntos }}</span>
+      <span class="message">Errores: {{ errores }}</span>
+      <button
+        class="btn btn-secondary"
+        [disabled]="siguiente"
+        (click)="preguntar()"
+      >
+        Siguiente pregunta &raquo;
+      </button>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="row">
+        <div class="col preguntaContainer">
+          <div style="margin-top: 70px; text-align: center; color: aliceblue">
+            <img [src]="foto.hits[0].previewURL" alt="" />
+            <p class="display-4">{{ preguntaActual.pregunta }}</p>
+          </div>
+        </div>
+
+        <div class="col palabraContainer">
+          <div style="margin-top: 60px">
+            <button
+              [disabled]="correcta1"
+              [ngClass]="correcta1Estilo"
+              class="btn btn-primary btn-lg btn-block"
+              (click)="elegirRespuesta(preguntaActual.opcion1, '1')"
+            >
+              {{ preguntaActual.opcion1 }}</button
+            ><br />
+            <button
+              [disabled]="correcta2"
+              [ngClass]="correcta2Estilo"
+              class="btn btn-primary btn-lg btn-block"
+              (click)="elegirRespuesta(preguntaActual.opcion2, '2')"
+            >
+              {{ preguntaActual.opcion2 }}</button
+            ><br />
+            <button
+              [disabled]="correcta3"
+              [ngClass]="correcta3Estilo"
+              class="btn btn-primary btn-lg btn-block"
+              (click)="elegirRespuesta(preguntaActual.opcion3, '3')"
+            >
+              {{ preguntaActual.opcion3 }}</button
+            ><br />
+            <button
+              [disabled]="correcta4"
+              [ngClass]="correcta4Estilo"
+              class="btn btn-primary btn-lg btn-block"
+              (click)="elegirRespuesta(preguntaActual.opcion4, '4')"
+            >
+              {{ preguntaActual.opcion4 }}</button
+            ><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

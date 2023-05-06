@@ -76,18 +76,21 @@
     opacity: 0;
     transition: all .3s ease;
     bottom: 0;
-    left: 5px;
     position: absolute;
     will-change: transform;
     color: rgb(0, 0, 0);
-    text-shadow: 0 0 15px rgba(100, 100, 255, .6)
+    text-shadow: 0 0 15px rgba(100, 100, 255, .6);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    left: 20%;
   }
   .lefter {
-    transform: translateX(-60px) translateZ(-50px) rotateY(-10deg);
+    transform: translateX(-70px) translateZ(-50px) rotateY(-10deg);
     background-image: url(https://cdn4.iconfinder.com/data/icons/aami-web-internet/64/aami14-74-512.png);
   }
   .left {
-    transform: translateX(-30px) translateZ(-25px) rotateY(-5deg);
+    transform: translateX(-40px) translateZ(-25px) rotateY(-5deg);
     background-image: url(https://cdn3.iconfinder.com/data/icons/other-icons/48/search-512.png);
   }
   .center {
@@ -97,14 +100,14 @@
     
   }
   .right {
-    transform: translateX(30px) translateZ(-25px) rotateY(5deg);
+    transform: translateX(40px) translateZ(-25px) rotateY(5deg);
         background-size: auto 80%;
     background-image: url(https://cdn4.iconfinder.com/data/icons/user-experience-1/60/ux-outline-029-secure-log-in-512.png);
    
   }
   .righter {
-    transform: translateX(60px) translateZ(-50px) rotateY(10deg);
-    background-image: url(https://cdn3.iconfinder.com/data/icons/other-icons/48/search-512.png);
+    transform: translateX(70px) translateZ(-50px) rotateY(10deg);
+    background-image: url(https://cdn2.iconfinder.com/data/icons/lined-social-networks/48/a-07-512.png);
   } 
  
   .explainer {

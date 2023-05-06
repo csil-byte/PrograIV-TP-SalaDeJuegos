@@ -1,0 +1,55 @@
+import { Pregunta } from './../clases/preguntas';
+
+export const preguntasConst: Pregunta[] = [
+  {
+    pregunta: '¿Cuanto es 2+2?',
+    opcion1: '2',
+    opcion2: '4',
+    opcion3: '6',
+    opcion4: '8',
+    opcionCorrecta: '4',
+    tematica: 'maths',
+    opcionPiola: '2',
+  },
+  {
+    pregunta: '¿A quien pertence este logo?',
+    opcion1: 'Batman',
+    opcion2: 'Linterna verde',
+    opcion3: 'Superman',
+    opcion4: 'Spiderman',
+    opcionCorrecta: 'Superman',
+    tematica: 'Superman',
+    opcionPiola: '3',
+  },
+  {
+    pregunta: '¿Que pokemon se muestra en la imagen?',
+    opcion1: 'Bulbasaur',
+    opcion2: 'Eevee',
+    opcion3: 'Charmander',
+    opcion4: 'Pikachu',
+    opcionCorrecta: 'Pikachu',
+    tematica: 'Pikachu',
+    opcionPiola: '4',
+  },
+  {
+    pregunta: '¿Que monumento se muestra en la imagen?',
+    opcion1: 'El monumento a la bandera',
+    opcion2: 'El obelisco',
+    opcion3: 'El teatro colon',
+    opcion4: 'Mi casa',
+    opcionCorrecta: 'El obelisco',
+    tematica: 'Obelisco',
+    opcionPiola: '2',
+  },
+  {
+    pregunta:
+      '¿Como se llama el principal villano de la saga The legend of Zelda?',
+    opcion1: 'Ganon',
+    opcion2: 'Arthas',
+    opcion3: 'Link',
+    opcion4: 'Darius',
+    opcionCorrecta: 'Ganon',
+    tematica: 'zelda',
+    opcionPiola: '1',
+  },
+];

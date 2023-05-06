@@ -8,10 +8,12 @@
         <div class="col"></div>
         <div class="col">
           <p style="margin-top: 30px">
-            Usando una fila de guiones, se representa la palabra a adivinar, dando el número de letras, números y categoría.
-            Se va adivinando una letra por turno, si la letra no está en la palabra, se resta una vida.
-            Si la letra está en la palabra, se muestra la letra en la palabra.
-                       </p>
+            Usando una fila de guiones, se representa la palabra a adivinar,
+            dando el número de letras, números y categoría. Se va adivinando una
+            letra por turno, si la letra no está en la palabra, se resta una
+            vida. Si la letra está en la palabra, se muestra la letra en la
+            palabra.
+          </p>
         </div>
       </div>
       <hr />
@@ -30,7 +32,7 @@
       </div>
       <hr />
     </div>
-    <div *ngIf="juegoEnCurso" class="game-container">
+    <div *ngIf="juegoEnCurso && !gameOver" class="game-container">
       <h1 class="h1">
         Ahorcado<br /><span class="colorDisplay">Adivina la palabra!</span>
       </h1>
@@ -38,30 +40,17 @@
       <div class="">
         <span class="message">Puntaje: {{ 5 }}</span>
       </div>
-      <!-- <div class="col">
-      <li *ngFor="let boton of botones">
-        <button class="btn btn-primary letter-button">{{ boton.letra }}</button>
-      </li>
-    </div> -->
-
       <div class="palabra-box">
         <div class="col palabraContainer">
           <ng-container>
             <button
               class="respuesta"
               *ngFor="let buttonText of botonesRespuesta; let i = index"
-              [ngClass]="buttonText.estado"> 
+              [ngClass]="buttonText.estado"
+            >
               {{ buttonText.letra }}
             </button>
           </ng-container>
-          <!-- *ngFor="let descr of elegirPalabra()">
-        <p>
-          {{ descr }}
-        </p> -->
-
-          <!-- <span *ngFor="let letra of palabraElegida">
-        <span>{{ palabraElegida }} </span>
-      </span> -->
         </div>
       </div>
 
@@ -73,9 +62,18 @@
           (click)="verificarLetra(boton)"
           [disabled]="boton.presionado"
           [ngClass]="boton.estado"
-          >       
+        >
           {{ boton.letra }}
         </button>
+      </div>
+    </div>
+    <div *ngIf="juegoEnCurso && gameOver" class="game-container">
+      <div class="ahorcado-gameOver">
+        <img
+          src="./../../../assets/ahorcado/gameOverAhorcado.png"
+          width="340px"
+          height="340px"
+        />
       </div>
     </div>
   </div>

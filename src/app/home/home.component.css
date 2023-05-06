@@ -1,26 +1,89 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
+.container {
+  background: url(./../../assets/img-home/back-hearts.jpg) repeat;
+  width: 100%;
+  height: 100%;
+  padding-top: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+.container-cards {
+  height: 300px;
+  width: 300px;
+  background: #fdcfe8;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #ad99e9;
+  margin: 10px;
+}
 
-body {
-  margin: 0;
-  font-family: 'Lato', sans-serif;
+.content {
+  text-align: justify;
+  color: black;
+  padding: 40px;
+  font-family: "Merriweather", serif;
+  min-height: 135px;
+}
+
+h1 {
+  font-weight: 20;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-weight: 20;
+  margin-top: 0;
+}
+
+.container-cards:hover {
+  background: url(./../../assets/img-home/back-hearts.jpg) repeat;
 }
 
 .header {
+  width: 50px;
+  padding-top: 20px;
+  align-items: center;
+  margin-left: 50px;
+}
 
-  background: #009FFF;
-background: linear-gradient(to right, #fda7bb, #a173f6);
+.game_image {
+  width: 120%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-top: 50px;
+  }
+}
+
+/* body {
+  background: url(./../../assets/img-home/back-hearts.jpg) repeat;
+  width: 100%;
+  padding-top: 15%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+} */
+/* 
+.header {
+  background: #009fff;
+  background: linear-gradient(to right, #fda7bb, #a173f6);
   color: white;
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-
 }
-.profile
-{
+.profile {
   margin-top: 100px;
 }
 .details {
@@ -32,149 +95,134 @@ background: linear-gradient(to right, #fda7bb, #a173f6);
   margin-top: 90px;
 }
 
-
-
-.card__image {
-  height: 160px;
-  width: 160px;
+.game_image {
+  height: 220px;
+  width: 220px;
   border-radius: 50%;
   border: 5px solid #272133;
   margin-top: 20px;
   box-shadow: 0 20px 50px rgb(255, 0, 68);
   align-items: center;
   justify-content: center;
+  text-align: center;
   margin-left: 20px;
 }
-
-
 :root {
-    --surface-color: #fff;
-    --curve: 40;
- 
-    
-  }
-  
-  * {
+  --surface-color: #fff;
+  --curve: 40;
+}
 
-    box-sizing: border-box;
-  }
-  
-  body {
+* {
+  box-sizing: border-box;
+}
 
-    font-family: "Noto Sans JP", sans-serif;
-    background-color: #fef8f8;
-    width: 100%;
-  }
-  
-  .cards {
-      
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    list-style-type: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background:  url(./../../assets/img-home/back-hearts.jpg)  repeat center center fixed;
-   
-  }
-  
-  .card {
- 
-    margin-top: 100px;
-    position: relative;
-    display: block;
-    height: 100%;
-    border-radius: calc(var(--curve) * 1px);
-    overflow: hidden;
-    text-decoration: none;
-  }
-  
-  .card__image {
-    width: 60%;
-    height: auto;
-  }
-  
-  .card__overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    border-radius: calc(var(--curve) * 1px);
-    background-color: var(--surface-color);
-    transform: translateY(100%);
-    transition: 0.2s ease-in-out;
-  }
-  
-  .card:hover .card__overlay {
-    transform: translateY(0);
-  }
-  
-  .card__header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 2em;
-    padding: 2em;
-    border-radius: calc(var(--curve) * 1px) 0 0 0;
-    background-color: var(--surface-color);
-    transform: translateY(-100%);
-    transition: 0.2s ease-in-out;
-  }
-  
-  .card__arc {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    bottom: 100%;
-    right: 0;
-    z-index: 1;
-  }
-  
-  .card__arc path {
-    fill: var(--surface-color);
-    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-  }
-  
-  .card:hover .card__header {
-    transform: translateY(0);
-  }
-  
-  .card__thumb {
-    flex-shrink: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-  
-  .card__title {
-    font-size: 1em;
-    margin: 0 0 0.3em;
-    color: #6a515e;
-  }
-  
-  .card__tagline {
-    display: block;
-    margin: 1em 0;
-    font-family: "MockFlowFont";
-    font-size: 0.8em;
-    color: #d7bdca;
-  }
-  
-  .card__status {
-    font-size: 0.8em;
-    color: #d7bdca;
-  }
-  
-  .card__description {
-    padding: 0 2em 2em;
-    margin: 0;
-    color: #d7bdca;
-    font-family: "MockFlowFont";
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-  }
-  
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  list-style-type: none;
+}
+
+.card {
+  margin-top: 100px;
+  position: relative;
+  display: block;
+  height: 150%;
+  width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  text-align: center;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: calc(var(--curve) * 1px);
+  background-color: var(--surface-color);
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  background-color: var(--surface-color);
+  transform: translateY(-250%);
+  transition: 0.2s ease-in-out;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  top: -120px;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+.card:hover .card__header {
+  transform: translateY(10);
+  text-align: center;
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 0.3em;
+  color: #ff0084;
+  text-align: center;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";
+  font-size: 0.8em;
+  color: #d7bdca;
+}
+
+.card__status {
+  font-size: 0.8em;
+  color: #d7bdca;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #000000;
+  font-family: "MockFlowFont";
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-align: center;
+} */

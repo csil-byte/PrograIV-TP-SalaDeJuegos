@@ -1,249 +1,179 @@
-.back{
-    height: 100vh;
-    width: 100vw;
-  background: url(./../../assets/img-home/HD-wallpaper-kawaii-cute-moon-pastel-purple.jpg) no-repeat center center fixed;
-  background-size: 100%;
+.background {
+  height: 100%;
+  width: 100%;
+  background: url(./../../assets/img-home/back-hearts.jpg) repeat center center
+    fixed;
+  background-size: cover;
   position: absolute;
+  display: block;
+}
+.profile-img {
+  background: url(./../../assets/img-home/perfil.png) no-repeat center center;
+  margin-top: 150px;
+  height: 100%;
+  max-height: 750px;
+  width: 100%;
+  background-size: contain;
+  position: absolute;
+  display: block;
+}
+.about-me-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  padding-top: 150px;
 }
 
-.profile-pic
-{
-  height: 20vh;
-  width: 10vw;
+.menu-card,
+.about-me-card,
+.game-card,
+.empty-card,
+.image-card,
+.color-palette-card {
+  box-sizing: border-box;
+  border: 8px solid #f1d2d6;
+  background-color: #d1a6d982;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.menu-card h2,
+.about-me-card h2,
+.game-card h2,
+.color-palette-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+}
+
+.color-palette-card {
+  position: absolute;
+
+  left: 100;
+}
+
+.color-palette {
+  display: flex;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
- padding-left: 80px;
- padding-right: 80px;
-
+  margin: 5px;
 }
 
-body {
-    text-align: center;
-    font-size: 13.5px;
-    line-height: 1.2em;
+.image-card img {
+  max-width: 100%;
+  height: auto;
+}
 
-   
-  }
-  body *{
+.empty-card {
+  visibility: hidden;
+}
 
+.menu-card {
+  flex-basis: 250px;
+}
 
-    box-sizing: border-box;
-    max-width: 100%;
-    font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica,
-      Arial, sans-serif;
+.about-me-card,
+.game-card {
+  flex-basis: 500px;
+}
 
-  
-  }
-  .stat-block { 
- 
-    text-align: left;
-    margin: 20px;
-    display: inline-block;
-    vertical-align: top;
-    width: 17%;
-    min-width:280px;
-    background: #FDF1DC;
-    padding: 5px 10px 20px;
-    box-shadow: 0 0 1.5em #867453;
-    margin-top: 180px;
-    position: absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-padding: 10px;
+.menu-card {
+  order: 3;
+}
 
-  }
-  .stat-block.wide{
-  
+.about-me-card {
+  order: 2;
+}
 
-    width: 46.5%;
-    min-width: 560px;
-    text-align: center;
+.game-card {
+  order: 3;
+  z-index: 2;
+}
 
-  }
-  .stat-block.wide .section-left,
-  .stat-block.wide .section-right{
-    display: inline-block;
-    vertical-align: top;
-    width: 48%;
-    text-align: left;
+.image-card {
+  order: 1;
+  padding-top: -300px;
+  max-width: 300px;
+  max-height: 300px;
+  z-index: 2;
+}
+.pixel {
+  height: 100px;
+  width: 100px;
+  order: 6;
+  position: absolute;
+  padding-top: -150px;
+  z-index: 3;
+}
+.vines {
+  width: 250px; /* set the width of your vines image */
+  height: 300px; /* set the height of your vines image */
 
-    
-  }
-  .stat-block.wide .section-left{
-    margin-right: 1.5%;
-   
-  }
-  .stat-block.wide .section-right{
-    margin-left: 1.5%;
-  
-  }
-  @media screen and (max-width: 675px){
-      .stat-block.wide{
-          min-width: 280px;
-      }
-      .stat-block.wide .section-left,
-      .stat-block.wide .section-right{
-        display: block;
-        width: 100%;
-   
-      }
-      .stat-block.wide .section-left{
-        margin: 0;
-      }
-      .stat-block.wide .section-right{
-          margin: 0;
-      }
-      
-  }
-  .orange-border{
-    display: block;
-    background: #E69A28;
-    border: 1px solid #000;
-    height: 5px;
-    padding: 0 10px 0;
-    margin: -10px -10px 0;
-    box-sizing: initial;
+  /*set to the far upper right*/
+  position: absolute;
+  top: 140px;
+  right: 0;
+  z-index: 1;
+}
 
-  }
-  .orange-border.bottom{
-    margin: 15px -10px -20px;
-  }
-  .tapered-rule{
-    display: block;
-    width: 100%;
-    height: 5px;
-    border: none;
-    color: #922610;
-    fill: #922610;
-    stroke: #922610;
-    
-  }
-  .creature-heading h1{
-    font-family: 'Libre Baskerville', 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;
-    color: #922610;
-    font-size: 23px;
-    line-height: 1.2em;
-    margin: 10px 0 0;
-    letter-spacing: 1px;
-    font-variant: small-caps;
-    font-weight: bold;
-  }
-  .creature-heading h2{
-    font-weight: normal;
-    font-style: italic;
-    font-size: 12px;
-    line-height: 1.2em;
-    margin: 0 0 10px;
-  }
-  .property-line h4,
-  .property-line p{
-    display: inline;
-    margin: 0;
-    color: #922610;
-    font-size: 13.5px;
-    line-height: 1.2em;
-  }
-  .property-line h4{
-    color: #7A200D;
-  }
-  .property-line{
-    text-indent: -1em;
-    padding-left: 1.1em;
-    line-height: 1.4em;
-  }
-  .property-line.first{
-    margin: 8px 0 0
-  }
-  .property-line.last{
-    margin: 0 0 10px;
-  }
-  .abilities{
-    text-align: center;
-    color: #922610;
-  }
-  .abilities > div{
-    display: inline-block;
-    vertical-align: middle;
-    width: 15.5%;
-    min-width: 40px; 
-    font-size: 12px;
-    line-height: 1em;
-  }
-  .abilities h4{
-    margin: 10px 0 2px;
-    font-size: 14px;
-    line-height: 1.2em;
-    text-transform: uppercase;
-    color: #7A200D;
-  }
-  .abilities p{
-    margin: 0 0 10px;
-    line-height: 1.2em;
-  }
-  .property-block h4,
-  .property-block p{
-    font-size: 13.5px;
-    line-height: 1.2em;
-    display: inline;
-    margin: 0;
-  }
-  .property-block h4{
-    font-style: italic;
-  }
-  .property-block{
-    padding: 10px 2px 0;
-  }
-  .actions h3{
-    border-bottom: 1px solid #7A200D;
-    color: #7A200D;
-    font-size: 21px;
-    font-variant: small-caps;
-    font-weight: normal;
-    letter-spacing: 1px;
-    margin: 20px 0 0;
-    padding: 0 0 10px;
-    text-indent: 5px;
-  }
-  .actions{
-    margin: 0 0 20px;
-  }
-  .actions:last-child{
-    margin: 0;
-  }
-  
-  @media print{
-      .orange-border{
-          display: none;
-      }
-      .stat-block,
-      .stat-block.wide, 
-      .stat-block.wide .section-left,
-      .stat-block.wide .section-right,
-      .property-line,
-      .property-block{
-          width: 100%;
-          display: block;
-      }
-      .stat-block.wide .section-left{
-        margin: 0;
-      }
-      .stat-block.wide .section-right{
-        margin: 0;
-      }
-      .stat-block{
-          width: 40%;
-          display: inline-block;
-          vertical-align: top;
-      }
-      .stat-block.wide{
-          page-break-after: always;
-      }
-  }
-  @media screen and (max-width: 575px){
-      .stat-block{
-          margin: 20px 0;
-          
-      }
+.menu-card:hover,
+.about-me-card:hover,
+.game-card:hover,
+.image-card:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
 
-  }
-  
+.card-border {
+  border: 8px solid #d3c0b8;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+/* pixelated borders */
+.menu-card,
+.about-me-card,
+.game-card,
+.empty-card,
+.image-card,
+.color-palette-card {
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.color-palette-card {
+  box-shadow: none;
+  order: 5;
+  left: 40px;
+}
+
+.color-palette-card h2 {
+  font-size: 18px;
+}
+
+.color {
+  width: 25px;
+  height: 25px;
+  margin: 4px;
+  border: 2px solid #f1e1d2;
+}
+
+.color:hover {
+  border: 2px solid #ffffff;
+}
+
+.color:active {
+  border: 2px solid #000000;
+}

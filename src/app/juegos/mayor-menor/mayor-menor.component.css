@@ -1,0 +1,40 @@
+.h1 {
+    color: white;
+    text-align: center;
+    line-height: 1.1;
+    background-color: steelblue;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 20px 0;
+ }
+ .colorDisplay {
+    font-size: 130%;
+ }	
+ .palabraContainer{
+     font-size: 400%;
+     margin-top: 150px;
+     text-align: center;
+ }
+ .botonera{
+     text-align: center;
+     margin-top: 20px;
+ }
+ .message{
+    display: inline-block;
+    width: 20%;
+ }
+      .boton-letra-acertada {
+        background-color: lightgreen;
+      }
+     
+      .boton-letra-no-acertada {
+        background-color: lightcoral;
+      }
+     
+      .stripe {
+        background-color: white;
+        height: 30px;
+        text-align: center;
+        /* margin-bottom: 5px; */
+     }

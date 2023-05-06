@@ -1,0 +1,24 @@
+.game-container {
+  font-family: Verdana, Geneva, sans-serif;
+  margin: 5%;
+  width: 100%;
+  max-width: 1024px;
+  margin-inline: auto;
+  padding-top: 150px;
+  text-align: center;
+}
+
+.back {
+  width: 100%;
+  display: flex;
+  background-image: url("/assets/img-home/back-hearts.jpg");
+  height: 100%;
+}
+
+#box {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  display: none;
+  position: relative;
+}
