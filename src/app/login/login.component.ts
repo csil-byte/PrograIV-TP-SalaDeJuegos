@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
         email,
         password
       );
-      alertWithSuccess('Se ha ingresado con éxito');
+      alertWithSuccess('Se ha ingresado con éxito', this.router);
     } catch (error) {
       alertWithError(error);
 
@@ -69,15 +69,15 @@ export class LoginComponent implements OnInit {
     this.credentials.get('password')?.setValue('123456');
   }
 }
-function alertWithSuccess(title: any) {
+function alertWithSuccess(title: any, router: Router) {
   Swal.fire({
     title: title,
     width: 600,
     padding: '3em',
     color: '#716add',
     background: '#fff url(./../../assets/img-home/back-hearts.jpg)',
-  }).then(function () {
-    window.location.href = './../../home';
+  }).then(() => {
+    router.navigate(['/home']);
   });
 }
 function alertWithError(title: any) {

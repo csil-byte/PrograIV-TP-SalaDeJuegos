@@ -4,11 +4,16 @@
   },
   "targets": {
     "tp-saladejuegos-d4757": {
+      "TARGET_NAME": "tp",
       "hosting": {
-        "TP-SalaDeJuegos": [
+        "tp": [
           "tp-saladejuegos-d4757"
+        ],
+        "TP-SalaDeJuegos": [
+          "public"
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }
