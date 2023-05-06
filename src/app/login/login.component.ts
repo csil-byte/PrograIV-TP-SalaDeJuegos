@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
         email,
         password
       );
-      alertWithSuccess('Se ha ingresado con éxito', this.router);
+      this.router.navigate(['/home']);
     } catch (error) {
       alertWithError(error);
 

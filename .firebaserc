@@ -1,14 +1,12 @@
 {
   "projects": {
-    "default": "tp-saladejuegos-d4757"
+    "default": "public",
+    "tp": "tp-saladejuegos-d4757"
   },
   "targets": {
     "tp-saladejuegos-d4757": {
       "TARGET_NAME": "tp",
       "hosting": {
-        "tp": [
-          "tp-saladejuegos-d4757"
-        ],
         "TP-SalaDeJuegos": [
           "public"
         ]
