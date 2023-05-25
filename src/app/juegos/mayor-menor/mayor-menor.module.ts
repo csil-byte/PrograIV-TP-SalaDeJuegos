@@ -1,19 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { MayorMenorComponent } from './mayor-menor.component';
 
+import { MayorMenorRoutingModule } from './mayor-menor-routing.module';
+import { MayorMenorComponent } from './mayor-menor.component';
 
 @NgModule({
   declarations: [MayorMenorComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: MayorMenorComponent,
-      },
-    ]),
-  ]
+  imports: [CommonModule, MayorMenorRoutingModule],
 })
-export class MayorMenorModule { }
+export class MayorMenorModule {}

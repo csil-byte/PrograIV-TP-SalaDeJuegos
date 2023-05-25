@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { ChatComponent } from './home/chat/chat.component';
 import { ReaccionComponent } from './juegos/reaccion/reaccion.component';
-import { HomeRoutingModule } from './home/home-routing.module';
+
 import { AhorcadoModule } from './juegos/ahorcado/ahorcado.module';
 
 //i want to load AhorcadoModule lazily from my HomeComponent which has a HomeRoutingModule
@@ -19,16 +19,27 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    children: [
-      {
-        path: 'ahorcado',
-        loadChildren: () =>
-          import('./juegos/ahorcado/ahorcado.module').then(
-            (m) => m.AhorcadoModule
-          ),
-      },
-    ],
   },
+  {
+    path: 'ahorcado',
+    loadChildren: () =>
+      import('./juegos/ahorcado/ahorcado.module').then((m) => m.AhorcadoModule),
+  },
+  {
+    path: 'mayor-menor',
+    loadChildren: () =>
+      import('./juegos/mayor-menor/mayor-menor.module').then(
+        (m) => m.MayorMenorModule
+      ),
+  },
+  {
+    path: 'preguntados',
+    loadChildren: () =>
+      import('./juegos/preguntados/preguntados.module').then(
+        (m) => m.PreguntadosModule
+      ),
+  },
+  //TODO: ---- add the rest of the games, each need a routing and module file
   { path: 'quien-soy', component: QuienSoyComponent },
   { path: 'chat', component: ChatComponent },
 

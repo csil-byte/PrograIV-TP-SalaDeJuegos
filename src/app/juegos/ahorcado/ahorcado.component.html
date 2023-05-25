@@ -23,11 +23,7 @@
     <div *ngIf="juegoEnCurso" class="ahorcado-container">
       <div class="row">
         <div class="ahorcado-imagen">
-          <img
-            src="./../../../assets/ahorcado/{{ vidas }}.png"
-            width="340px"
-            height="340px"
-          />
+          <img src="./../../../assets/ahorcado/{{ vidas }}.png" width="340px" height="340px" />
         </div>
       </div>
       <hr />
@@ -43,11 +39,7 @@
       <div class="palabra-box">
         <div class="col palabraContainer">
           <ng-container>
-            <button
-              class="respuesta"
-              *ngFor="let buttonText of botonesRespuesta; let i = index"
-              [ngClass]="buttonText.estado"
-            >
+            <button class="respuesta" *ngFor="let buttonText of botonesRespuesta; let i = index">
               {{ buttonText.letra }}
             </button>
           </ng-container>
@@ -55,25 +47,15 @@
       </div>
 
       <div class="letras-container">
-        <button
-          type="button"
-          class="btn btn-primary botonera"
-          *ngFor="let boton of botones"
-          (click)="verificarLetra(boton)"
-          [disabled]="boton.presionado"
-          [ngClass]="boton.estado"
-        >
+        <button type="button" class="btn btn-primary botonera" *ngFor="let boton of botones"
+          (click)="verificarLetra(boton)" [disabled]="boton.presionado">
           {{ boton.letra }}
         </button>
       </div>
     </div>
     <div *ngIf="juegoEnCurso && gameOver" class="game-container">
       <div class="ahorcado-gameOver">
-        <img
-          src="./../../../assets/ahorcado/gameOverAhorcado.png"
-          width="340px"
-          height="340px"
-        />
+        <img src="./../../../assets/ahorcado/gameOverAhorcado.png" width="340px" height="340px" />
       </div>
     </div>
   </div>
