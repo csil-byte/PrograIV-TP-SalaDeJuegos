@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,12 +14,12 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
   styleUrls: ['./registrar.component.css'],
 })
 export class RegistrarComponent implements OnInit {
-  credentials!: FormGroup;
+  credentials!: UntypedFormGroup;
 
   constructor(public afAuth: AngularFireAuth, private router: Router) {
-    this.credentials = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
+    this.credentials = new UntypedFormGroup({
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      password: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(6),
       ]),

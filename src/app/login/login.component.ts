@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,15 +22,15 @@ import { getAuth } from 'firebase/auth';
 export class LoginComponent implements OnInit {
   [x: string]: any;
 
-  credentials!: FormGroup;
+  credentials!: UntypedFormGroup;
 
   constructor(
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     private router: Router
   ) {
-    this.credentials = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
+    this.credentials = new UntypedFormGroup({
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      password: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(6),
       ]),
