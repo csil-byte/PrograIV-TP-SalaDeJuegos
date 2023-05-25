@@ -8,34 +8,38 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { ChatComponent } from './home/chat/chat.component';
-import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
-import { PreguntadosComponent } from './juegos/preguntados/preguntados.component';
-import { MayorMenorComponent } from './juegos/mayor-menor/mayor-menor.component';
 import { ReaccionComponent } from './juegos/reaccion/reaccion.component';
+import { HomeRoutingModule } from './home/home-routing.module';
+import { AhorcadoModule } from './juegos/ahorcado/ahorcado.module';
 
+//i want to load AhorcadoModule lazily from my HomeComponent which has a HomeRoutingModule
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registrar', component: RegistrarComponent },
   {
     path: 'home',
     component: HomeComponent,
+    children: [
+      {
+        path: 'ahorcado',
+        loadChildren: () =>
+          import('./juegos/ahorcado/ahorcado.module').then(
+            (m) => m.AhorcadoModule
+          ),
+      },
+    ],
   },
   { path: 'quien-soy', component: QuienSoyComponent },
   { path: 'chat', component: ChatComponent },
-
-  { path: 'ahorcado', component: AhorcadoComponent },
-  { path: 'preguntados', component: PreguntadosComponent },
-
-  { path: 'mayormenor', component: MayorMenorComponent },
 
   { path: 'reaccion', component: ReaccionComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
+//add whatever's need to load AhorcadoModule lazily
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-  ],
+  imports: [RouterModule.forRoot(routes)],
+
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

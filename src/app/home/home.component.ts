@@ -4,17 +4,14 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs/internal/Observable';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   public user$: Observable<any> = this.authSvc.afAuth.user;
-  constructor(  public authSvc:AuthService) { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(public authSvc: AuthService, private router: Router) {}
+ 
+  ngOnInit(): void {}
 }
