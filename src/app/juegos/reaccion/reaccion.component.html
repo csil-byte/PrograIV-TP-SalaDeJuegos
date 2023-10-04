@@ -1,13 +1,14 @@
-<div class="back">
-  <div class="game-container">
-    <!-- <div *ngIf="!juegoEnCurso">
-      <h1>¿Que tan rápido podes reaccionar?</h1>
-      <p>Hace click en las figuras ni bien aparezcan!</p>
-      <button (click)="iniciarJuego()">Comenzar</button>
-    </div>
-    <div *ngIf="juegoEnCurso">
-      <p id="printReactionTime"></p>
-      <div id="box"></div>
-    </div> -->
-  </div>
+<!-- <div *ngIf="!gameStarted">
+  <button (click)="startGame()">Start Game</button>
 </div>
+
+<div *ngIf="gameStarted && !gameOver">
+  <div class="circle" *ngFor="let circle of circles" [class.green]="circle.color === 'green'" [class.red]="circle.color === 'red'"
+    [ngStyle]="{'width': circle.size, 'height': circle.size}" (click)="hitCircle(circle)"></div>
+</div>
+
+<div *ngIf="gameOver">
+  <p>Game Over!</p>
+  <p>Your score: {{ score }}</p>
+  <p>Time taken: {{ timer }} seconds</p>
+</div> -->

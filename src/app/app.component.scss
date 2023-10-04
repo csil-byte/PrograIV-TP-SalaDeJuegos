@@ -1,7 +1,7 @@
 
 .body {
-  margin: 0px;
-  margin-bottom: -10px;
+  margin: 0 -10px;
+ 
 }
 
 .header-back
@@ -34,6 +34,7 @@
     perspective: 1000px;
     transition: all 1.3s ease-in;
     transform: perspective(10000px) rotateX(0deg);
+    position: relative;
     .text {
       opacity: 1;
     }
