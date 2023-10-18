@@ -1,9 +1,14 @@
 .chat-box {
 	display: flex;
-	height: 100%;
-	max-height: 100%;
-	width: 100%;
 	background-image: url("/assets/img-home/back-hearts.jpg");
+	border-radius: 20px;
+  	cursor: pointer;
+  	box-shadow: 0 0 20px 8px #ad99e9;
+	width:600px;
+	height:800px;
+	margin-left: auto;
+	/*move to the top right*/
+	margin-top: 0;
 }
 
 .chat-container {

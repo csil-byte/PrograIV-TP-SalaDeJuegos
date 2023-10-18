@@ -1,11 +1,11 @@
 
 
 .fondo {
-  width: 100%;
-  display: flex;
+
   background-image: url("/assets/img-home/back-hearts.jpg");
-  height: 100%;
 }
+
+
 
 .game-box {
   margin: 5%;
@@ -13,45 +13,58 @@
   max-width: 1024px;
   margin-inline: auto;
 }
-.ahorcado-imagen {
-  padding-top: 200px;
+.h1{
+  font-size: 2.5em;
+  text-align: center;
+  color: #ff0084;
+  font-family: "Raleway", sans-serif;
 }
+
+.header_image{
+  border-radius: 20px 20px 0 0; /* Apply border-radius to the upper corners */
+  object-fit: resize;
+  height: 18.5em;
+  width: 100%;
+}
+
 .ahorcado-gameOver {
   padding-top: 60px;
   width: 150%;
 }
 .ahorcado-container {
-  margin-top: 130px;
   display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: center;
-  text-align: center;
-  width: 20%;
-  height: 500px;
-
-  float: left;
-  background-color: pink;
+  flex-wrap: nowrap;
+  justify-content: space-between; /* This aligns the two containers side by side */
+  width: 2000px;
+  backdrop-filter: blur(15px);
+  max-width: 1100px; /* Limit the width to prevent it from becoming too wide */
+  padding: 20px; /* Add padding for spacing inside the innerContainer */
+  height: 650px;
 }
+.ahorcado-rightContainer{
+  display: flex;
+  flex-flow: column wrap;
 
-.side-container {
-  margin-top: 130px;
+  
+  
+}
+.side-description{
+ 
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: center;
   text-align: center;
-  width: 20%;
+  width: 40%;
   height: 500px;
-
   float: left;
   border-right: 1px solid gray;
-  background-color: pink;
 }
+
 
 .game-container {
   display: flex;
-  margin-top: 130px;
+ 
   display: flex;
   flex-direction: column;
   justify-content: right;
@@ -70,7 +83,6 @@
   align-items: center;
   display: table-column;
   size: 20%;
-  /* margin-top: auto; */
   margin-bottom: 20px;
   align-items: center;
   background-color: #fee6e3;
@@ -92,16 +104,17 @@
   padding-block: 2rem 1rem;
   background-color: rgb(221, 191, 255);
   margin-block: 1rem;
+  height: auto;
 }
 
 .palabraContainer {
-  font-size: 400%;
+
   text-align: center;
-  align-items: bottom;
-  width: 600px;
-  height: fit-content;
+  height: 100%;
+  width: 100%;
   line-height: 10px;
-  margin-block: auto 0;
+
+  
 }
 
 .letras-container {
@@ -109,18 +122,24 @@
 }
 
 .respuesta {
-  font-size: 0;
+  font-size:13px;
   width: 50px;
   height: 40px;
-  margin: 6px;
+ 
   border-width: 0px 0em 5px 0; /* top right bottom left */
   border-style: solid dotted inset double;
   border-color: #f00 #0f0 rgb(0, 0, 0) #ff0;
 }
 .boton-letra-acertada {
-  background-color: lightgreen;
-}
+  background-color: lightgreen !important;
+  pointer-events: none;
+  cursor: default;
+  
 
+}
+.boton-presionado {
+  background-color: rgb(204, 220, 225);
+}
 .mostrar-letra {
   font-size: 20px;
   padding-top: 10px;
@@ -128,4 +147,20 @@
 
 .boton-letra-no-acertada {
   background-color: lightcoral;
+  /* //disabled, add italics or something that shows its already been pressed */
+  pointer-events: none;
+  cursor: default;
+
+}
+
+.fondo, .title,.ahorcado-rightContainer, .ahorcado-imagen, .side-container, .side-description, .ahorcado-container, .game-container, .botonera, .palabra-box, .letras-container, .respuesta, .boton-letra-acertada, .boton-presionado, .mostrar-letra, .boton-letra-no-acertada {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #ad99e9;
+}
+.fondo, .side-container{
+  display: flex;
+  flex-wrap: wrap;
 }

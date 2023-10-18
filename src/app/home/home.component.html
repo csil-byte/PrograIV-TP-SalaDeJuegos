@@ -1,89 +1,64 @@
-<!-- <div class="container row">
-  <div class="container-cards col-lg-3 col-md-3">
-    <div class="header">
-      <img src="../../assets/img-home/hangman.png" class="game_image" alt="" />
-    </div>
-    <div class="content" routerLink="/ahorcado">
-      <h1>__Ahorcado</h1>
-      <h3>Temática: pelis! Adivina la peli para ganar el juego.</h3>
+
+<div class="container">
+  <div class="innerContainer">
+    <div class="top-row">
+    <div class="titleContainer">
+    <h1 class="pageTitle">ゲーム</h1>
+  </div>
+  <div class="headerContainer">
+   <img src="../../assets/img-home/gameController.png" class="header_image" alt="" />
+ </div>
+</div>
+<div class="cardOuterContainer">
+  <div class="outer-card" [routerLink]="'/ahorcado'">
+    <div class="container-cards">
+      <div class="header">
+        <img src="../../assets/img-home/transFolder.png" class="game_image" alt="" />
+      </div>
+      <div class="content">
+       <h1 class="card__title">Ahorcado</h1>
+        <h3 class="card__description">Temática: pelis! Adivina la peli para ganar el juego.</h3>
+      </div>
     </div>
   </div>
-  <div class="container-cards col-lg-3 col-md-3">
-    <div class="header">
-      <img src="../../assets/img-home/mayormenor.png" class="game_image" alt="" />
-    </div>
-    <div class="content" routerLink="/mayormenor">
-      <h1>___Mayor Menor</h1>
-      <h3>
-        Adivina si la próxima carta es mayor o menor que la actual y suma
-        puntos!
-      </h3>
-    </div>
-  </div>
-  <div class="container-cards col-lg-3 col-md-3">
-    <div class="header">
-      <img src="../../assets/img-home/preguntados.png" class="game_image" alt="" />
-    </div>
-    <div class="content" routerLink="/preguntados">
-      <h1>_Preguntados</h1>
-      <h3>
-        Contesta bien las preguntas de conocimiento popular para ganar puntos y
-        ganar
-      </h3>
+  <div class="outer-card" [routerLink]="'/mayor-menor'">
+    <div class="container-cards">
+      <div class="header">
+        <img src="../../assets/img-home/transFolder.png" class="game_image" alt="" />
+      </div>
+      <div class="content" >
+        <h1 class="card__title">Mayor Menor</h1>
+        <h3 class="card__description">
+          Adivina si la próxima carta es mayor o menor que la actual y suma
+          puntos!
+        </h3>
+      </div>
     </div>
   </div>
-  <div class="container-cards col-lg-3 col-md-3">
-    <div class="header">
-      <img src="../../assets/img-home/mayormenor.png" class="game_image" alt="" />
+  <div class="outer-card" [routerLink]="'/preguntados'">
+    <div class="container-cards">
+      <div class="header">
+        <img src="../../assets/img-home/transFolder.png" class="game_image" alt="" />
+      </div>
+      <div class="content" >
+        <h1 class="card__title">Preguntados</h1>
+        <h3 class="card__description">
+          Contesta bien las preguntas de conocimiento popular para ganar puntos
+        </h3>
+      </div>
     </div>
-    <div class="content" routerLink="/reaccion">
-      <h1>_Reacción</h1>
-      <h3>Hace click en los círculos para ver que tan rápido reaccionas</h3>
+  </div>
+  <div class="outer-card">
+    <div class="container-cards">
+      <div class="header">
+        <img src="../../assets/img-home/transFolder.png" class="game_image" alt="" />
+      </div>
+      <div class="content">
+        <h1 class="card__title">Reacción</h1>
+        <h3 class="card__description">Hace click en los círculos para ver que tan rápido reaccionas</h3>
+      </div>
     </div>
   </div>
 </div>
-<router-outlet></router-outlet> -->
-<div class="container row">
-  <div class="container-cards col-lg-3 col-md-3">
-    <div class="header">
-      <img src="../../assets/img-home/hangman.png" class="game_image" alt="" />
-    </div>
-    <div class="content" [routerLink]="'/ahorcado'">
-      <h1>Ahorcado</h1>
-      <h3>Temática: pelis! Adivina la peli para ganar el juego.</h3>
-    </div>
-  </div>
-  <div class="container-cards col-lg-3 col-md-3">
-    <div class="header">
-      <img src="../../assets/img-home/mayormenor.png" class="game_image" alt="" />
-    </div>
-    <div class="content" [routerLink]="'/mayor-menor'">
-      <h1>Mayor Menor</h1>
-      <h3>
-        Adivina si la próxima carta es mayor o menor que la actual y suma
-        puntos!
-      </h3>
-    </div>
-  </div>
-  <div class="container-cards col-lg-3 col-md-3">
-    <div class="header">
-      <img src="../../assets/img-home/preguntados.png" class="game_image" alt="" />
-    </div>
-    <div class="content" [routerLink]="'/preguntados'">
-      <h1>Preguntados</h1>
-      <h3>
-        Contesta bien las preguntas de conocimiento popular para ganar puntos y
-        ganar
-      </h3>
-    </div>
-  </div>
-  <div class="container-cards col-lg-3 col-md-3">
-    <div class="header">
-      <img src="../../assets/img-home/reaccion.png" class="game_image" alt="" />
-    </div>
-    <div class="content">
-      <h1>Reacción</h1>
-      <h3>Hace click en los círculos para ver que tan rápido reaccionas</h3>
-    </div>
-  </div>
+</div>
 </div>

@@ -19,6 +19,10 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { ScoresComponent } from './juegos/scores/scores.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDPDLLA6vRd0MdlBzLXFEUWMd3IEz5DqQU',
@@ -37,6 +41,9 @@ const firebaseConfig = {
     RegistrarComponent,
     HomeComponent,
     ChatComponent,
+    NavBarComponent,
+    FooterComponent,
+    ScoresComponent,
   
   ],
   imports: [
@@ -56,6 +63,7 @@ const firebaseConfig = {
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    NgbModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

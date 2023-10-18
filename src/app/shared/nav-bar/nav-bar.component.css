@@ -1,0 +1,88 @@
+.navbar {
+  background: url(../../../assets/img-home/powerpuff.jpg) repeat center center fixed;
+  color: #000000;
+  padding: 10px 0;
+  height: 10%;
+  font-size: 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar-brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  /*move to the left*/
+  margin-left: -250px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+}
+
+.nav-item {
+  margin: 0 15px;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  border: 5px solid rgba(254, 89, 144, 0);
+  box-shadow: 0 0 10px rgba(203, 118, 255, 0.6);
+  /* Adjusted box-shadow */
+  background-color: rgb(188, 158, 252);
+  cursor: pointer;
+  background-blend-mode: color-burn;
+  background: radial-gradient(ellipse at bottom, #b785f1, #ee3a88e6);
+  width: 10em;
+  
+}
+
+.nav-item a {
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 0 5px rgba(100, 100, 255, .6);
+  text-align: center;
+  display: block;
+  
+
+}
+
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-profile span {
+  font-weight: bold;
+}
+
+.nav-item,
+.navbar {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #ad99e9;
+}

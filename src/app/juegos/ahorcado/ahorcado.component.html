@@ -1,62 +1,95 @@
 <div class="fondo">
   <div class="game-box">
     <div *ngIf="!juegoEnCurso" class="side-container">
-      <h1 class="h1">
-        Ahorcado<br /><span class="colorDisplay">Reglas del juego</span>
-      </h1>
-      <div class="row">
-        <div class="col"></div>
-        <div class="col">
-          <p style="margin-top: 30px">
-            Usando una fila de guiones, se representa la palabra a adivinar,
-            dando el número de letras, números y categoría. Se va adivinando una
-            letra por turno, si la letra no está en la palabra, se resta una
-            vida. Si la letra está en la palabra, se muestra la letra en la
-            palabra.
-          </p>
+      <div class="side-description">
+        <h1 class="h1">
+          Ahorcado<br /><span class="colorDisplay">Reglas del juego</span>
+        </h1>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+            <p style="margin-top: 30px">
+              Usando una fila de guiones, se representa la palabra a adivinar,
+              dando el número de letras, números y categoría. Se va adivinando
+              una letra por turno, si la letra no está en la palabra, se resta
+              una vida. Si la letra está en la palabra, se muestra la letra en
+              la palabra.
+              <button (click)="iniciarJuego()">Empezar</button>
+            </p>
+          </div>
         </div>
       </div>
-      <hr />
-      <button (click)="iniciarJuego()">Empezar</button>
+      <div class="right-sideContainer">
+        <img
+          src="../../assets/ahorcado/pinkHangman.png"
+          class="header_image"
+          alt=""
+        />
+      </div>
     </div>
 
-    <div *ngIf="juegoEnCurso" class="ahorcado-container">
-      <div class="row">
-        <div class="ahorcado-imagen">
-          <img src="./../../../assets/ahorcado/{{ vidas }}.png" width="340px" height="340px" />
+    <div *ngIf="juegoEnCurso && !gameOver" class="ahorcado-container">
+      <div class="leftPanel">
+      <div class="ahorcado-imagen">
+        <img
+          src="./../../../assets/ahorcado/{{ vidas }}.png"
+          width="320px"
+          height="340px"
+        />
+        <div class="score">
+          <span class="message">Puntaje: {{ 5 }}</span>
         </div>
       </div>
-      <hr />
     </div>
-    <div *ngIf="juegoEnCurso && !gameOver" class="game-container">
-      <h1 class="h1">
-        Ahorcado<br /><span class="colorDisplay">Adivina la palabra!</span>
-      </h1>
-
-      <div class="">
-        <span class="message">Puntaje: {{ 5 }}</span>
-      </div>
-      <div class="palabra-box">
-        <div class="col palabraContainer">
-          <ng-container>
-            <button class="respuesta" *ngFor="let buttonText of botonesRespuesta; let i = index">
-              {{ buttonText.letra }}
+      <div class="ahorcado-rightContainer">
+        <div class="title">
+          <h1 class="h1">
+            Ahorcado<br />
+            <span class="colorDisplay">Adivina la palabra!</span>
+          </h1>  
+        </div>
+          <div class="palabra-box">
+            <div class="palabraContainer">
+              <ng-container>
+                <button
+                  class="respuesta"
+                  *ngFor="let letra of botonesRespuesta"
+                  [class.mostrar-letra]="letra.presionado"
+                >
+                  {{ letra.letra === " " ? "\u00A0" : letra.letra }}
+                </button>
+              </ng-container>
+            </div>
+          </div>
+      
+          <div class="letras-container">
+            <button
+              type="button"
+              class="btn btn-primary botonera"
+              *ngFor="let boton of botones"
+              (click)="verificarLetra(boton.letra)"
+              [class.boton-letra-acertada]="
+                boton.estado == 'boton-letra-acertada'
+              "
+              [class.boton-letra-no-acertada]="
+                boton.estado == 'boton-letra-no-acertada'
+              "
+            >
+              {{ boton.letra }}
             </button>
-          </ng-container>
-        </div>
-      </div>
-
-      <div class="letras-container">
-        <button type="button" class="btn btn-primary botonera" *ngFor="let boton of botones"
-          (click)="verificarLetra(boton)" [disabled]="boton.presionado">
-          {{ boton.letra }}
-        </button>
+          </div>
+        
       </div>
     </div>
-    <div *ngIf="juegoEnCurso && gameOver" class="game-container">
-      <div class="ahorcado-gameOver">
-        <img src="./../../../assets/ahorcado/gameOverAhorcado.png" width="340px" height="340px" />
-      </div>
+  </div>
+
+  <div *ngIf="!juegoEnCurso && gameOver" class="game-container">
+    <div class="ahorcado-gameOver">
+      <img
+        src="./../../../assets/ahorcado/gameOverAhorcado.png"
+        width="340px"
+        height="340px"
+      />
     </div>
   </div>
 </div>

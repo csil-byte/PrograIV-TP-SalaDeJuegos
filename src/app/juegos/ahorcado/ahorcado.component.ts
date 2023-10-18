@@ -1,182 +1,107 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JsonGetterService } from '../../shared/services/json-getter.service';
+
 @Component({
   selector: 'app-ahorcado',
   templateUrl: './ahorcado.component.html',
   styleUrls: ['./ahorcado.component.css'],
 })
 export class AhorcadoComponent implements OnInit {
-  botones: Array<{ letra: string; estado: string; presionado: boolean }> = [];
-  botonesRespuesta: Array<{
-    letra: string;
-    estado: string;
-    presionado: boolean;
-  }> = [];
-
-  jsonPath = 'assets/json/ahorcado.json';
-
-  palabraActual: string | undefined;
-  palabraActualArray: Array<string> = [];
-
-  constructor(private jsonGetterService: JsonGetterService) {
-    this.palabraActual = '';
-  }
-  letras: string[] = [];
+  palabraActual: string = '';
+  botones: { letra: string; presionado: boolean; estado: string }[] = [];
+  botonesRespuesta: { letra: string; presionado: boolean;estado: string }[] = [];
   palabras: string[] = [];
   vidas: number = 6;
-  palabraElegida: any = [];
-  palabraElegidaE: any = [];
   juegoEnCurso: boolean = false;
-  len: number = 0;
   gameOver: boolean = false;
   win: boolean = false;
 
+
+  constructor(private jsonGetterService: JsonGetterService) {}
+ //TODO:
+ //[ ] 1. be able to add movies with more than 1 word 
+
   ngOnInit(): void {
-    console.log('valor de juegoEnCurso: ' + this.juegoEnCurso);
+    this.jsonGetterService.getResource('assets/json/ahorcado.json').subscribe((data) => {
+      this.botones = data.constantes.map((letra: string) => ({
+        letra,
+        presionado: false,
+        estado: 'mostrar-letra',
 
-    this.jsonGetterService.getResource(this.jsonPath).subscribe((data) => {
-      this.letras = data.constantes;
-      this.palabras = data.variables;
+      }));
+      this.palabras = data.variables; // Load words from the JSON file
     });
-  }
-
-  crearBotones() {
-    this.botones = [];
-
-    for (let i = 0; i < this.letras.length; i++) {
-      // console.log('letras' + this.letras[i]);
-      this.botones.push({
-        letra: this.letras[i],
-        presionado: false,
-        estado: 'boton-no-seleccionado',
-      });
-      //console.log('botones', this.botones);
-    }
-  }
-
-  crearBotonesRespuesta() {
-    this.botonesRespuesta = [];
-
-    for (let i = 0; i < this.palabraElegida.length; i++) {
-      // console.log('letras' + this.letras[i]);
-      this.botonesRespuesta.push({
-        letra: this.palabraElegida[i],
-        presionado: false,
-        estado: 'sin-mostrar',
-      });
-      //  console.log('palabra elegida' + this.palabraElegida);
-      // console.log('palabra actual array: ' + this.palabraActualArray);
-      // console.log('botonesRespuesta', this.botonesRespuesta);
-    }
-  }
-  splitDescription(theString: string) {
-    let value = theString.split('\n');
-    return value;
   }
 
   iniciarJuego() {
     this.juegoEnCurso = true;
-    console.log('valor de juegoEnCurso: ' + this.juegoEnCurso);
-    this.elegirPalabra();
-    this.crearBotones();
-    this.crearBotonesRespuesta();
+    this.gameOver = false;
+    this.win = false;
+    this.vidas = 6;
+
+    // Select a random word from your word list
+    const randomIndex = Math.floor(Math.random() * this.palabras.length);
+    this.palabraActual = this.palabras[randomIndex].toUpperCase();
+    console.log(this.palabraActual);
+
+    // Initialize the answer buttons
+    this.botonesRespuesta = this.palabraActual.split('').map((letra) => ({
+      letra,
+      presionado: false,
+      estado: 'mostrar-letra',
+    }));
   }
 
-  elegirPalabra() {
-    const random = Math.floor(Math.random() * this.palabras.length);
-    this.palabraElegida = this.palabras[random].toUpperCase();
-    this.palabraElegidaE = this.palabraElegida;
-    console.log('palabra elegida: ' + this.palabraElegida);
-
-    for (let index = 0; index < this.palabraElegida.length; index++) {
-      this.palabraActualArray[index] = this.palabraElegida[index];
+  verificarLetra(letraSeleccionada: string) {
+    if (!this.juegoEnCurso || this.gameOver || this.win) {
+      return;
     }
-    console.log('palabra elegida: ' + this.palabraElegida);
-    console.log('palabra actual array: ' + this.palabraActualArray);
+    // Check if the selected letter is in the word
+    if (this.palabraActual.includes(letraSeleccionada)) {
+      // Letter is correct
+     
+      this.botonesRespuesta.forEach((botonRespuesta, index) => {
+        if (botonRespuesta.letra === letraSeleccionada) {
+          this.botonesRespuesta[index].presionado = true;
+        
+          this.botones.forEach((boton, index) => {
+            if (boton.letra === letraSeleccionada) {
+              this.botones[index].estado = 'boton-letra-acertada';
+            }
+          });
+          console.log(this.botonesRespuesta[index]);
+        }
+      });
 
-    return this.palabraActualArray;
-  }
-  //hangman game, function should be called when the user clicks on the button of a letter in the alphabet. if the letter is in the word, the letter should be displayed in the word. if the letter is not in the word, the hangman should be drawn.
-  //if the user has guessed all the letters, the game should end and the user should be congratulated.
-  //if the user has guessed the wrong letter 6 times, the game should end and the user should be 'game over'.
-  casosAdivina(
-    caso: boolean,
-    boton: { letra: string; estado: string; presionado: boolean },
-    botonRespuesta: {
-      letra: string;
-      estado: string;
-      presionado: boolean;
-    }
-  ) {
-    //console.log('botonRespuesta: ' + botonRespuesta);
-    if (caso) {
-      //guess is correct
-      console.log('guess is correct');
-      botonRespuesta.estado = 'mostrar-letra';
-      boton.estado = 'boton-letra-acertada';
-      boton.presionado = true;
-
-      // console.log('botonRespuesta: ' + botonRespuesta.letra);
-
-      // console.log('palabraElegida: ' + this.palabraElegida);
+      // Check if the player has won
+      const hasWon = this.botonesRespuesta.every((botonRespuesta) => botonRespuesta.presionado);
+      if (hasWon) {
+        this.win = true;
+        this.juegoEnCurso = false;
+      }
     } else {
-      //guess is wrong
-      if (this.vidas > 1) {
-        this.vidas--;
-        boton.estado = 'boton-letra-no-acertada';
-        boton.presionado = true;
-        console.log('guess is wrong');
-      } else {
-        //game over
-        this.gameOver = true;
-        console.log('game over');
-        //set timeout for 5 seconds
-
-        // setTimeout(() => {
-        //   this.juegoEnCurso = false;
-        // }, 5000);
+      // Letter is incorrect
+      // Change the state of the button to 'pressed'
+      this.botones.forEach((boton, index) => {
+        if (boton.letra === letraSeleccionada) {
+          this.botones[index].estado = 'boton-letra-no-acertada';
+        }
+      });
+      this.vidas--;
+      if (this.vidas === 0) {
+      this.isGameOver(true);
       }
     }
   }
 
-  //function should be called when a letter is clicked to check if it is in the word.
-  verificarLetra(boton: {
-    letra: string;
-    estado: string;
-    presionado: boolean;
-  }) {
-    console.log('-----------VERIFICAR LETRA--------------');
-    console.log('Letra presionada: ' + boton.letra);
-
-    let caso = 0;
-    //const caso = this.palabraElegida.includes(boton.letra.toUpperCase());
-
-    for (let i = 0; i < this.palabraElegidaE.length; i++) {
-      console.log('palabraElegidaE: ' + this.palabraElegidaE);
-      console.log('palabraElegidaE - loop: ' + this.palabraElegidaE[i]);
-      if (this.palabraElegidaE[i] == boton.letra.toUpperCase()) {
-        this.botonesRespuesta.forEach((botonRespuesta) => {
-          if (botonRespuesta.letra == boton.letra.toUpperCase()) {
-            botonRespuesta.estado = 'mostrar-letra';
-          }
-        });
-
-        this.botonesRespuesta[i].estado = 'mostrar-letra';
-        this.casosAdivina(true, boton, this.botonesRespuesta[i]);
-
-        caso++;
-        this.palabraElegidaE = this.palabraElegidaE.replaceAll(
-          boton.letra.toLocaleUpperCase(),
-          ''
-        );
-      }
+  isGameOver(state : boolean) {
+    if(state){
+    
+      this.gameOver = true;
+      this.juegoEnCurso = false;
+      this.botones.forEach((boton, index) => {
+        this.botones[index].estado = 'mostrar-letra';
+      });
     }
-    if (caso === 0) {
-      this.casosAdivina(false, boton, this.botonesRespuesta[1]);
-    }
-    if (this.palabraElegidaE == '') {
-      console.log('you won');
-    }
-    //console.log('letra es: ' + boton.letra.toLowerCase(), 'caso es: ' + caso);
   }
 }
